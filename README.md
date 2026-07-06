@@ -12,6 +12,57 @@ We do not claim that our approach is the best possible one. Push_swap is a fasci
 
 ---
 
+# Table of Contents
+
+* [Repository Versions](#repository-versions)
+* [Description](#description)
+* [What Should Someone Learn From This Project?](#what-should-someone-learn-from-this-project)
+* [Project Objectives](#project-objectives)
+* [The Rules of the Game](#the-rules-of-the-game)
+* [Visualizing the Allowed Operations](#visualizing-the-allowed-operations)
+* [Understanding Disorder Visually](#understanding-disorder-visually)
+* [How Our Adaptive Strategy Uses Disorder](#how-our-adaptive-strategy-uses-disorder)
+* [Understanding Algorithmic Complexity](#understanding-algorithmic-complexity)
+* [Our Sorting Strategies](#our-sorting-strategies)
+  * [Strategy 1: Simple Sort](#strategy-1-simple-sort)
+  * [Strategy 2: Medium Sort](#strategy-2-medium-sort)
+  * [Strategy 3: Complex Sort](#strategy-3-complex-sort)
+  * [Strategy 4: Adaptive Strategy](#strategy-4-adaptive-strategy)
+  * [Tiny Sort Optimization](#tiny-sort-optimization)
+* [From Input To Output: Following the Journey Through the Program](#from-input-to-output-following-the-journey-through-the-program)
+* [Project Architecture](#project-architecture)
+* [Data Structures](#data-structures)
+* [Performance Targets](#performance-targets)
+* [Lessons Learned](#lessons-learned)
+* [Team Contributions](#team-contributions)
+* [Peer Acknowledgements](#peer-acknowledgements)
+* [Instructions](#instructions)
+* [Testing](#testing)
+* [Bonus Part: Checker](#bonus-part-checker)
+* [Resources](#resources)
+* [AI Usage](#ai-usage)
+* [Final Reflection](#final-reflection)
+
+---
+
+# Repository Versions
+
+This repository intentionally keeps three versions of the code:
+
+| Version | Where | Purpose |
+| ------- | ----- | ------- |
+| Commented | `main` branch (`src/`) | The canonical version, with inline comments explaining what happens at each step. Written for readers who want to understand the implementation. |
+| Norm-compliant | Tag [`42-passed`](../../tree/42-passed) | The version submitted for the 42 evaluation, formatted to pass norminette (which forbids inline `//` comments). |
+| Live coding | Tag [`live-coding-eval`](../../tree/live-coding-eval) | The state of the code including the changes made live during the 42 evaluation. |
+
+```bash
+git checkout 42-passed        # the submitted, norm-compliant version
+git checkout live-coding-eval # the version with live-coding edits
+git checkout main             # back to the commented version
+```
+
+---
+
 # Description
 
 **push_swap** is one of the most algorithmically focused projects in the 42 curriculum.
@@ -863,121 +914,6 @@ Example:
 | 1000     | ~9965            |
 
 This is why modern high-performance sorting algorithms typically target O(n log n).
-
----
-
-# Understanding Disorder
-
-The project introduces a metric called **disorder**.
-
-Disorder measures how far a list is from being sorted.
-
-The value ranges between:
-
-```text
-0.0 = perfectly sorted
-1.0 = maximally disordered
-```
-
-The metric is calculated by counting inversions.
-
-An inversion occurs whenever:
-
-```text
-larger value appears before smaller value
-```
-
-Example:
-
-```text
-1 2 3 4 5
-```
-
-Disorder:
-
-```text
-0.00
-```
-
----
-
-Example:
-
-```text
-5 4 3 2 1
-```
-
-Disorder:
-
-```text
-1.00
-```
-
----
-
-Example:
-
-```text
-1 3 2 5 4
-```
-
-Disorder:
-
-```text
-somewhere between 0 and 1
-```
-
----
-
-# Why Disorder Matters
-
-One of the most important discoveries we made during the project was:
-
-> Not all unsorted inputs are equally unsorted.
-
-Two lists may contain the same number of elements yet require completely different approaches.
-
-### Low Disorder (< 0.2)
-
-Almost sorted.
-
-Example:
-
-```text
-1 2 3 5 4 6 7 8
-```
-
-Only a few elements are misplaced.
-
-Using a highly sophisticated algorithm here may actually perform worse than a simpler strategy.
-
----
-
-### Medium Disorder (0.2 – 0.5)
-
-Partially mixed.
-
-Example:
-
-```text
-1 6 3 8 2 7 4 5
-```
-
-A chunk-based approach often performs well.
-
----
-
-### High Disorder (> 0.5)
-
-Highly random or near reverse order.
-
-Example:
-
-```text
-8 7 6 5 4 3 2 1
-```
-
-Efficient large-scale algorithms become significantly more attractive.
 
 ---
 
