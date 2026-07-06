@@ -59,3 +59,9 @@ docs/info.txt
 docs/project-map.md
 docs/project-map.pdf
 docs/tasks.txt
+# macOS
+.DS_Store
+
+# Build outputs
+/push_swap
+/checker
