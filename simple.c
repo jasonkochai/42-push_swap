@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/19 12:19:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/19 12:19:58 by jakoch           ###   ########.fr       */
+/*   Created: 2026/06/19 12:19:40 by jakoch            #+#    #+#             */
+/*   Updated: 2026/06/19 12:20:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* 
+/*
 
 	Min extraction method:
 
@@ -24,7 +24,7 @@
 
 */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	simple_sort(t_stack *a, t_stack *b, t_config *config)
 {

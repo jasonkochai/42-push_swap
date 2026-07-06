@@ -6,11 +6,11 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:21:54 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:47:11 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:11:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	free_str_array(char **tokens)
 {
@@ -31,28 +31,28 @@ void	error_n_free(char **tokens, int *nums)
 	free_str_array(tokens);
 }
 
-int syntax_error(char *token)
+int	syntax_error(char *token)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!(ft_isdigit(token[i]) || token[i] == '-' || token[i] == '+'))
-        return (1);
-    if ((token[i] == '+' || token[i] == '-') && !ft_isdigit(token[i + 1]))
-        return (1);
-    i++;
-    while (token[i])
-    {
-        if (!ft_isdigit(token[i]))
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	if (!(ft_isdigit(token[i]) || token[i] == '-' || token[i] == '+'))
+		return (1);
+	if ((token[i] == '+' || token[i] == '-') && !ft_isdigit(token[i + 1]))
+		return (1);
+	i++;
+	while (token[i])
+	{
+		if (!ft_isdigit(token[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int repetition_error(long nbr, int *nums, int i)
+int	repetition_error(long nbr, int *nums, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (j < i)

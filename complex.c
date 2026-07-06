@@ -6,13 +6,14 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/19 12:33:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:43:55 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
-	Radix sort adaptation (bitwise sorting with two stacks)
+	Radix sort adaptation (bitwise sorting with two stacks):
+
 	Copy all values from a into an array DONE
 	sort / normalize values into ranks 0 -> n - 1 DONE
 	find max rank and number of bits needed TODO
@@ -27,14 +28,14 @@
 
 */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-static void 	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a);
+static void	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a);
 
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
-	int size_a;
-	
+	int	size_a;
+
 	size_a = a->size;
 	if (size_a <= 5)
 		tiny_sort(a, b, config);
@@ -47,27 +48,27 @@ void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 
 static int	find_max_bits(int max_value_of_stack)
 {
-	int bits;
+	int	bits;
 
 	bits = 0;
-	while (max_value_of_stack >> bits)			// while max_value shifted right by amount of bits isn't 0 
-		bits++;									// 5 >> 0 = 5, 5 >> 1 = 2, 5 >> 2 = 1, 5 >> 3 = 0 => max bits = 3 (5 = 101 in binary)
+	while (max_value_of_stack >> bits)
+		bits++;
 	return (bits);
 }
 
 static void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit)
 {
-	if (((a->top->value >> bit) & 1) == 0)		// shift a top value right by bit positions, &1 keep only the last bit, == 0 check wether that bit is 0
+	if (((a->top->value >> bit) & 1) == 0)
 		pb(a, b, config);
 	else
 		ra(a, config);
 }
 
-static void sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a)
+static void	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a)
 {
-	int max_bits;
-	int i;
-	int j;
+	int	max_bits;
+	int	i;
+	int	j;
 
 	max_bits = find_max_bits(size_a - 1);
 	i = 0;

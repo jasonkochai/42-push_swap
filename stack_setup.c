@@ -6,11 +6,11 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 16:59:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 20:14:11 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:14:50 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	stack_init(t_stack *stack)
 {
@@ -23,9 +23,9 @@ void	stack_init(t_stack *stack)
 
 void	build_stack(t_stack *stack, t_config *config)
 {
-	t_node *new_node;
-	int i;
-	int nbr;
+	t_node	*new_node;
+	int		i;
+	int		nbr;
 
 	i = 0;
 	while (config->tokens[i])

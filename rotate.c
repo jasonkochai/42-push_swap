@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:20:13 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 19:53:03 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:37:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ rr : ra and rb at the same time.
 
 */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-static void rotate(t_stack *stack);
+static void	rotate(t_stack *stack);
 
-void ra(t_stack *a, t_config *config)
+void	ra(t_stack *a, t_config *config)
 {
 	if (!a->top || !a->top->next)
 		return ;
@@ -40,7 +40,7 @@ void ra(t_stack *a, t_config *config)
 	}
 }
 
-void rb(t_stack *b, t_config *config)
+void	rb(t_stack *b, t_config *config)
 {
 	if (!b->top || !b->top->next)
 		return ;
@@ -53,7 +53,7 @@ void rb(t_stack *b, t_config *config)
 	}
 }
 
-void rr(t_stack *a, t_stack *b, t_config *config)
+void	rr(t_stack *a, t_stack *b, t_config *config)
 {
 	if ((!a->top || !a->top->next) && (!b->top || !b->top->next))
 		return ;
@@ -67,19 +67,17 @@ void rr(t_stack *a, t_stack *b, t_config *config)
 	}
 }
 
-static void rotate(t_stack *stack)
+static void	rotate(t_stack *stack)
 {
-	t_node *node_to_be_rotated;
-	
-	if (!stack->top || !stack->top->next)		// checks if stack is empty, or has only one node
-		return ;									
-												// eg.: TOP/NULL <-> [1] <-> [2] <-> [3] <-> BOTTOM/NULL
-	node_to_be_rotated = stack->top;			// node to be rotated points now to the stack top node 1 
-	stack->top = node_to_be_rotated->next;		// TOP -> [2]  	 link stack top to new top node 2
-	stack->top->prev = NULL;					// NULL <- [2]   unlink prev from top node 2
-	node_to_be_rotated->next = NULL;			// [1] -> NULL 	 unlink next from node 1 (this node will be at the bottom)
-	node_to_be_rotated->prev = stack->bottom;	// [3] <- [1]	 link prev from old top node 1 to current stack bottom node 3
-	stack->bottom->next = node_to_be_rotated;	// [3] -> [1]    link next from current stack bottom node 3 to becoming bottom node 1
-	stack->bottom = node_to_be_rotated;			// [1] <- BOTTOM link new stack bottom to node 1 becoming the new bottom node
-												// now: TOP/NULL <-> [2] <-> [3] <-> [1] <-> BOTTOM/NULL
+	t_node	*node_to_be_rotated;
+
+	if (!stack->top || !stack->top->next)
+		return ;
+	node_to_be_rotated = stack->top;
+	stack->top = node_to_be_rotated->next;
+	stack->top->prev = NULL;
+	node_to_be_rotated->next = NULL;
+	node_to_be_rotated->prev = stack->bottom;
+	stack->bottom->next = node_to_be_rotated;
+	stack->bottom = node_to_be_rotated;
 }

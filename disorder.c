@@ -6,26 +6,26 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 22:10:35 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 19:01:19 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:39:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	compute_disorder(t_stack *a, t_config *config)
 {
-	int mistakes;
-	int total_pairs;
-	t_node *node1;
-	t_node *node2;
+	int		mistakes;
+	int		total_pairs;
+	t_node	*node1;
+	t_node	*node2;
 
 	mistakes = 0;
 	total_pairs = 0;
 	node1 = a->top;
-	while(node1)
+	while (node1)
 	{
 		node2 = node1->next;
-		while(node2)
+		while (node2)
 		{
 			total_pairs++;
 			if (node1->value > node2->value)
@@ -34,10 +34,10 @@ void	compute_disorder(t_stack *a, t_config *config)
 		}
 		node1 = node1->next;
 	}
-	if (total_pairs == 0)								// avoid undefined behavior, division with zero
+	if (total_pairs == 0)
 		config->disorder = 0.0f;
 	else
-		config->disorder = (float)mistakes/ total_pairs;
+		config->disorder = (float)mistakes / total_pairs;
 }
 
 void	strategy_picker(t_config *config)

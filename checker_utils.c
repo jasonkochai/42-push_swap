@@ -6,13 +6,14 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 17:56:43 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:47:27 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-static void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
+static void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config,
+		char *line)
 {
 	free(line);
 	free_stack(a);
@@ -22,7 +23,8 @@ static void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char 
 	exit(1);
 }
 
-static void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *line)
+static void	execute_input_operation(t_stack *a, t_stack *b, t_config *config,
+		char *line)
 {
 	if (ft_strncmp(line, "sa\n", 4) == 0)
 		sa(a, config);
@@ -54,10 +56,10 @@ void	handle_input(t_stack *a, t_stack *b, t_config *config)
 {
 	char	*line;
 
-	line = get_next_line(0);									// get input from stdin, eg.: ra, pa, pb
+	line = get_next_line(0);
 	while (line)
 	{
-		execute_input_operation(a, b, config, line);			// executes operation command, if no correct input print error
+		execute_input_operation(a, b, config, line);
 		free(line);
 		line = get_next_line(0);
 	}
@@ -65,15 +67,15 @@ void	handle_input(t_stack *a, t_stack *b, t_config *config)
 
 void	check_if_sorted(t_stack *a, t_stack *b)
 {
-	t_node *current;
+	t_node	*current;
 
-	if (b->size	> 0)									// if stack b isn't empty at the end of sort
+	if (b->size > 0)
 	{
-		ft_printf("KO\n");								
+		ft_printf("KO\n");
 		return ;
 	}
 	current = a->top;
-	while (current && current->next)					// while there is a current node and next node in stack a to compare
+	while (current && current->next)
 	{
 		if (current->value > current->next->value)
 		{
