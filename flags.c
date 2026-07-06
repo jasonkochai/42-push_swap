@@ -6,22 +6,28 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:13:14 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:39:33 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 16:02:45 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+/*
 
-// check for argv flags such as --simple, --medium, --complex, --adaptive, --bench
+	check for argv flags such as --simple, --medium, --complex, --adaptive, --bench
+
+*/
+
+#include "push_swap.h"
 
 int	parse_flags(char *arg, t_config *config)
 {
-	if (ft_strncmp(arg, "--simple", 9) == 0 && arg[8] == '\0' && !config->strategy_picked)
+	if (ft_strncmp(arg, "--simple", 9) == 0 && arg[8] == '\0' 
+		&& !config->strategy_picked)
 	{
 		config->strategy = SIMPLE;
 		return (config->strategy_picked = true, 1);
 	}
-	if (ft_strncmp(arg, "--medium", 9) == 0 && arg[8] == '\0' && !config->strategy_picked)
+	if (ft_strncmp(arg, "--medium", 9) == 0 && arg[8] == '\0' 
+		&& !config->strategy_picked)
 	{
 		config->strategy = MEDIUM;
 		return (config->strategy_picked = true, 1);
@@ -37,5 +43,7 @@ int	parse_flags(char *arg, t_config *config)
 		return (config->strategy_picked = true, 1);
 	if (ft_strncmp(arg, "--bench", 8) == 0 && arg[7] == '\0')
 		return (config->bench = true, 1);
+	if (ft_strncmp(arg, "--count-only", 13) == 0 && arg[12] == '\0')
+		return (config->count_only = true, 1);
 	return (0);
 }

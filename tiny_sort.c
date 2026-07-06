@@ -6,23 +6,22 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:54:02 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:41:57 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 static void	sort_three(t_stack *a, t_config *config);
 
-void tiny_sort(t_stack *a, t_stack *b, t_config *config)				// fixed O(1), maxed input fixed
+void	tiny_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	if (a->size == 2)
 		sa(a, config);
 	else if (a->size == 3)
 		sort_three(a, config);
 	else if (a->size == 4 || a->size == 5)
-		extract_min_to_three(a, b, config);							
+		extract_min_to_three(a, b, config);
 }
 
 static void	sort_three(t_stack *a, t_config *config)
@@ -34,32 +33,32 @@ static void	sort_three(t_stack *a, t_config *config)
 	top = a->top->value;
 	middle = a->top->next->value;
 	bottom = a->bottom->value;
-	if (top < middle && middle < bottom)				// already sorted
+	if (top < middle && middle < bottom)
 		return ;
-	if (top < bottom && middle < bottom) 				// is bottom the biggest?
+	if (top < bottom && middle < bottom)
 		sa(a, config);
-	else if (top < middle && middle > bottom) 			// is middle the biggest?
+	else if (top < middle && middle > bottom)
 	{
 		rra(a, config);
-		if (a->top->value > a->top->next->value) 		// updated top > middle
+		if (a->top->value > a->top->next->value)
 			sa(a, config);
 	}
-	else 												// top is the biggest
+	else
 	{
 		ra(a, config);
-		if (a->top->value > a->top->next->value)	 	// updated top > middle
+		if (a->top->value > a->top->next->value)
 			sa(a, config);
 	}
 }
 
-void extract_min_to_three(t_stack *a, t_stack *b, t_config *config)
+void	extract_min_to_three(t_stack *a, t_stack *b, t_config *config)
 {
-	while (a->size > 3)							
+	while (a->size > 3)
 	{
 		bring_min_to_top_of(a, config);
-		pb(a, b, config);								// push smallest value to stack b
+		pb(a, b, config);
 	}
-	sort_three(a, config);								
-	while (b->top)										// while stack b is not empty
-		pa(a, b, config);								// push them back to a
+	sort_three(a, config);
+	while (b->top)
+		pa(a, b, config);
 }

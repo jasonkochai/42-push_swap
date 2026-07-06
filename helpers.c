@@ -6,11 +6,11 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:47:26 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/19 12:16:14 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:10:52 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 static long	convert_digits(const char *str, int i, int symbol)
 {

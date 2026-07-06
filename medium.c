@@ -6,29 +6,31 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 19:47:24 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 14:30:36 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
-	Chunk-based sorting (divide into √n chunks)
+	Chunk-based sorting (divide into √n chunks):
+
 	Collect and store all values from a in a copy
 	sort copies
 	turn each value to a rank 0 -> n - 1 (n = amount of numbers in total)
 	Push based on √n chunks
 	Look at a
 	Start from a->top
-	check rank of value, push b when in top ranks, if not ra until a value from chunk 1 comes to the top
+	check rank of value, push b when in top ranks,
+		if not ra until a value from chunk 1 comes to the top
 	optionally rb if in lower half of chunk
 	repeat until a empty
 	while b is not empty
 	move max value in b to top of b
-	pa 
+	pa
 
 */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config);
 
@@ -48,8 +50,8 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 	}
 }
 
-static void	push_chunk_value_to_b(t_stack *a, t_stack *b,
-		t_config *config, t_chunk *chunk)
+static void	push_chunk_value_to_b(t_stack *a, t_stack *b, t_config *config,
+		t_chunk *chunk)
 {
 	int	top_value;
 

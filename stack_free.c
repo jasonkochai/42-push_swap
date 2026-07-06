@@ -6,16 +6,16 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:37:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 16:48:01 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:14:58 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	free_stack(t_stack *stack)
 {
-	t_node *current;
-	t_node *next;
+	t_node	*current;
+	t_node	*next;
 
 	if (!stack || !stack->top)
 		return ;
