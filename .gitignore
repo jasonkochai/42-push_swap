@@ -55,10 +55,6 @@ dkms.conf
 *.dwo
 
 other/
-docs/info.txt
-docs/project-map.md
-docs/project-map.pdf
-docs/tasks.txt
 # macOS
 .DS_Store
 
