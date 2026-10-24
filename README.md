@@ -1563,7 +1563,7 @@ A straightforward algorithm can outperform a sophisticated one when the input is
 
 42 Berlin – jakoch
 
-GitHub: https://github.com/jaay13
+GitHub: https://github.com/jasonkochai
 
 Email: [jakoch@student.42berlin.de](mailto:jakoch@student.42berlin.de)
 
@@ -1613,7 +1613,7 @@ These conversations significantly helped us refine our understanding of how diff
 Clone the repository:
 
 ```bash
-git clone https://github.com/jaay13/42-push_swap.git
+git clone https://github.com/jasonkochai/42-push_swap.git
 cd 42-push_swap
 ```
 
