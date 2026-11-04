@@ -33,7 +33,7 @@ char	**parse_numbers(int argc, char **argv, int start_index)
 			return (NULL);
 		return (tokens);
 	}
-	if (arg_count > 1) 											// more than one numberic argv entry
+	if (arg_count > 1) 											// more than one numeric argv entry
 	{
 		tokens = ft_calloc(arg_count + 1, sizeof(char *)); 		// allocate the tokens, and init all to NULL
 		if (!tokens)

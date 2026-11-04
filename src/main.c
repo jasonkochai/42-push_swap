@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		return (0); 							// no parameters 
 	stack_init(&a); 							// initialize stack a
 	stack_init(&b); 							// init stack b
-	parse_input(argc, argv, &config); 			// parse to check wether flags are present, string needs to be split, checking correct input, range and dupes
+	parse_input(argc, argv, &config); 			// parse to check whether flags are present, string needs to be split, checking correct input, range and dupes
 	build_stack(&a, &config); 					// build stack a
 	compute_disorder(&a, &config);				// compute disorder, check if sorted (disorder 0)
 	strategy_picker(&config);					// set either forced strategy or adaptive default based on disorder

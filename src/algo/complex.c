@@ -57,7 +57,7 @@ static int	find_max_bits(int max_value_of_stack)
 
 static void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit)
 {
-	if (((a->top->value >> bit) & 1) == 0)		// shift a top value right by bit positions, &1 keep only the last bit, == 0 check wether that bit is 0
+	if (((a->top->value >> bit) & 1) == 0)		// shift a top value right by bit positions, &1 keep only the last bit, == 0 check whether that bit is 0
 		pb(a, b, config);
 	else
 		ra(a, config);

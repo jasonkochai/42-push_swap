@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	build_stack(&a, &config);							// build stack a
 	handle_input(&a, &b, &config);						// use get_next_line to read from stdin, check that each input is an operation and execute it
 	check_if_sorted(&a, &b);							// implement a function that checks if after the input it is sorted (OK, KO print)
-	free_stack(&a);										// free everyting
+	free_stack(&a);										// free everything
 	free_stack(&b);
 	free_str_array(config.tokens);
 	return (0);

@@ -53,7 +53,7 @@ typedef struct s_chunk
 	int	total;					// Original number of values
 }	t_chunk;
 
-typedef struct s_config			// Stores parsing results, strategy choosen, bench counters
+typedef struct s_config			// Stores parsing results, strategy chosen, bench counters
 {
 	int num_start;            	// first argv that is not a flag
 	enum e_strategy strategy; 	// sets which strategy is used

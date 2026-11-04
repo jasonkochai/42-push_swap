@@ -44,7 +44,7 @@ void	parse_input(int argc, char **argv, t_config *config)
 	config_init(config);
 	while (i < argc) 													// Loop until argv arguments are numeric
 	{
-		if (parse_flags(argv[i], config)) 								// check wether argument is a flag and store it
+		if (parse_flags(argv[i], config)) 								// check whether argument is a flag and store it
 			i++;
 		else
 			break ;
