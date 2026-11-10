@@ -9,6 +9,21 @@
 /*   Updated: 2026/06/18 13:14:13 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*
+
+append_node: Attach a node at the bottom of the stack. An empty stack gets it
+as both top and bottom. A NULL node is ignored. stack->size is not touched:
+the caller counts the nodes (build_stack does).
+
+bring_min_to_top_of: Rotate stack a until its smallest value is on top. Uses
+ra when that value sits in the top half (index <= size / 2) and rra
+otherwise, so it takes at most about size / 2 moves. Each move is printed
+and counted like any other operation. Stack a must not be empty.
+
+bring_max_to_top_of: The same for the largest value of stack b, with rb and
+rrb.
+
+*/
 
 #include "../inc/push_swap.h"
 
