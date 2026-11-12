@@ -9,6 +9,23 @@
 /*   Updated: 2026/06/19 12:16:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*
+
+ft_atol: Convert a string to a long. Skips leading whitespace, takes one
+optional sign, then reads digits until the first non-digit; anything after
+that is ignored, and a string with no digits gives 0. A value outside the
+int range saturates instead of overflowing: it returns LONG_MAX (or LONG_MIN
+for a negative number), so the caller can reject it with a simple range
+check.
+
+convert_digits: The digit loop of ft_atol. It checks against INT_MAX (or
+-INT_MIN) before each step, so the long never overflows.
+
+ft_int_sqrt: Integer square root, rounded down: 10 gives 3, 16 gives 4.
+Returns 0 for 0 and for negative numbers. The loop divides instead of
+multiplying, so root * root cannot overflow.
+
+*/
 
 #include "../inc/push_swap.h"
 
