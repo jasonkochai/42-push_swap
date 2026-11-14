@@ -12,6 +12,24 @@
 
 /*
 	Dedicated file for sort algorithm utility functions.
+
+	rank_stack_values_of: Replace every value in stack a with its rank, so
+	the smallest number becomes 0 and the largest becomes size - 1. The
+	order of the nodes does not change. medium_sort and complex_sort call
+	it first, so they can work with chunk boundaries and bits of small,
+	non-negative numbers instead of the raw input. Parsing has already
+	rejected duplicates, so every rank is unique. If the copy cannot be
+	allocated it frees the stack and the tokens, prints "Error" to stderr
+	and exits with 1.
+
+	copy_stack_into_array: Copy the values of stack a, top to bottom, into
+	a new array of a->size ints. Returns NULL if malloc fails.
+
+	sort_array: Sort that copy in place in ascending order (selection
+	sort, O(n^2)).
+
+	turn_stack_value_into_rank: Overwrite each node's value with the index
+	where that value sits in the sorted copy.
 */
 
 #include "../inc/push_swap.h"
