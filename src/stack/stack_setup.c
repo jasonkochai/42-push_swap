@@ -9,6 +9,20 @@
 /*   Updated: 2026/06/17 20:14:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*
+
+stack_init: Set a stack to empty: size 0, no top and no bottom node. A NULL
+stack is ignored.
+
+build_stack: Create one node for each string in config->tokens, in order,
+and append it at the bottom, so the first number given on the command line
+ends up on top of stack a. It expects the tokens to be validated already
+(parse_input checks the format, the int range and duplicates), which is why
+the (int) cast of ft_atol is safe here. If a node cannot be allocated it
+frees the nodes built so far and the tokens, prints "Error" to stderr and
+exits with 1.
+
+*/
 
 #include "../inc/push_swap.h"
 
