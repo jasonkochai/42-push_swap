@@ -9,6 +9,20 @@
 /*   Updated: 2026/06/17 19:01:19 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*
+
+compute_disorder: Measure how unsorted stack a is and store it in
+config->disorder. It counts the inversions (pairs where a higher value sits
+above a lower one) and divides by the number of pairs, so the result runs
+from 0.0 (already sorted) to 1.0 (fully reversed). Every pair is compared,
+so it costs O(n^2). A stack with fewer than two numbers gives 0.0.
+
+strategy_picker: Only acts when no strategy flag was given (ADAPTIVE). It
+then marks the run as adaptive and picks the strategy from the disorder:
+below 0.2 SIMPLE, below 0.5 MEDIUM, otherwise COMPLEX. A strategy forced by
+a flag is left as it is.
+
+*/
 
 #include "../inc/push_swap.h"
 
